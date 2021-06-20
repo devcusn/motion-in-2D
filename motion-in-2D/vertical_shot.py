@@ -66,3 +66,22 @@ class Computation():
         return end_time
  
 
+"""
+environment = Environment()
+environment.add_gravity(10)
+
+rock = Rock.sphere_rock()
+rock.create_sphere(5,1)
+
+launcher = Launcher()
+launcher.coordinate_y(100)
+launcher.add_launch_speed(100)
+
+computation = Computation(environment,launcher,rock)
+
+end_time = computation.find_end_time()
+max_velocity = computation.find_max_velocity()
+
+print('End Time {}'.format(end_time))
+print('Max Velocity {}'.format(max_velocity))
+"""
