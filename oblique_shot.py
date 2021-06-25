@@ -53,10 +53,12 @@ class Computation():
         self.rock = rock
     
     def find_max_height(self):
-        return self.launcher.y * (self.find_end_time()/2) - 1/2 * self.environment.gravity_magnitude * self.find_end_time()**2
+        return self.launcher_speed_y * (self.find_end_time()/2) - 1/2 * self.environment.gravity_magnitude * self.find_end_time()**2
     
     def find_end_time(self):
-        end_time = ((self.launcher.y * 2 / self.environment.gravity_magnitude)*2)**(1/2)
+        end_time = ((self.launcher_speed_y * 2 / self.environment.gravity_magnitude)*2)**(1/2)
         return end_time
  
+
+
 
