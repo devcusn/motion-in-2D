@@ -25,18 +25,10 @@ class Launcher():
 
     def __init__(self):
         name = 'Launcher'
-
-    def coordinate_y(self,y):
-        if(y <= 0):
-            print('Y must be grater than 0')
-        else:
-            self.y = y
-    def add_launch_speed(self,launch_speed_x):
-        if(launch_speed_x > 0):
-            self.launch_speed_x = launch_speed_x
-        else:
-            print('Launch Speed must be greater than 0')
-            
+        
+    def add_launch_speed(self,launch_speed_y):
+            self.launch_speed_y = launch_speed_y
+      
 class Environment():
     
     def __init__(self):
@@ -52,6 +44,7 @@ class Environment():
     def add_air_friction(self,friction):
         self.air_friction = friction
 
+
 class Computation():
     
     def __init__(self,environment,launcher,rock):
@@ -59,29 +52,12 @@ class Computation():
         self.launcher = launcher
         self.rock = rock
     
-    def find_max_velocity(self):
-        return self.find_end_time() * self.environment.gravity_magnitude
+    def find_max_height(self):
+        return self.launcher.launch_speed_y * (self.find_end_time()/2) - 1/2 * self.environment.gravity_magnitude * self.find_end_time()**2
+    
+    
     def find_end_time(self):
-        end_time = (self.launcher.y * 2 / self.environment.gravity_magnitude)**(1/2)
+        end_time = ((self.launcher.launch_speed_y * 2 / self.environment.gravity_magnitude)*2)**(1/2)
         return end_time
  
 
-"""
-environment = Environment()
-environment.add_gravity(10)
-
-rock = Rock.sphere_rock()
-rock.create_sphere(5,1)
-
-launcher = Launcher()
-launcher.coordinate_y(100)
-launcher.add_launch_speed(100)
-
-computation = Computation(environment,launcher,rock)
-
-end_time = computation.find_end_time()
-max_velocity = computation.find_max_velocity()
-
-print('End Time {}'.format(end_time))
-print('Max Velocity {}'.format(max_velocity))
-"""
